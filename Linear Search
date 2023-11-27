@@ -1,0 +1,35 @@
+Q: Find the positon of number by the linear Search
+import java.util.Scanner;
+class LinearSearch{
+    public static void main(String agr[])
+    {
+        int count, num, target, array[];
+        Scanner linear = new Scanner(System.in);
+        System.out.println("Enter the number of elements:");
+        num = linear.nextInt(); 
+        //Creating array to store the all the numbers
+        array = new int[num]; 
+        System.out.println("Enter " + num + " integers");
+        //Loop to store each numbers in array
+        for(count = 0; count<num; count++)
+        array[count] = linear.nextInt();
+        
+        //Searching the numbers
+        System.out.println("Enter the search number");
+        target = linear.nextInt();
+        
+        for(count = 0; count<num; count++)
+        {
+            if (array[count] == target)
+            {
+                System.out.println(target+ " present at the location " +(count+1));
+                //Traget number is fount and out the loop 
+                break;
+            }
+        }
+        if(count == num)
+        {
+            System.out.println(target+ "target number not found");
+        }
+    }
+}
