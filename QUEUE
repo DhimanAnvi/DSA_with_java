@@ -1,0 +1,79 @@
+Write a java program to implement the queue using linked list?
+Code:-
+import java.util.*;
+public class QueueLL{
+    Node front, rear;
+    int s;
+    class Node
+    {
+        int data;
+        Node next;
+    }
+    public QueueLL()
+    {
+        front = null;
+        rear = null;
+        s=0;
+    }
+    public boolean isEmpty()
+    {
+        return(s==0);
+    }
+    public void display()
+    {
+        if(s==0)
+        {
+            System.out.println("queue is empty");
+            return;
+        }
+        Node temp=front;
+        while(temp!=null)
+        {
+            System.out.print(""+temp.data);
+            temp = temp.next;
+        }
+    }
+    
+    public void dequeue()
+    {
+        int data = front.data;
+        front = front.next;
+        if(isEmpty())
+        {
+            rear = null;
+        }
+        s--;
+    }
+    public void enqueue(int data)
+    {
+        Node old = rear;
+        rear = new Node();
+        rear.data = data;
+        rear.next = null;
+        if(isEmpty ())
+        {
+            front = rear;
+        }
+        else
+        {
+            old.next = rear;
+        }
+        s++;
+        System.out.println(data);
+    }
+    public static void main (String args[])
+    {
+        QueueLL queue = new QueueLL ();
+        queue.enqueue (1);
+        queue.enqueue (2);
+        queue.enqueue (3);
+        queue.enqueue (4);
+        System.out.println ("Original queue : ");
+        queue.display ();
+        System.out.println ();
+        queue.dequeue ();
+        queue.dequeue ();
+        System.out.println ("Queue after dequeue : ");
+        queue.display();
+    }
+}
