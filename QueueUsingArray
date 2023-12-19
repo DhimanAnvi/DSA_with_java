@@ -1,0 +1,101 @@
+Write a java program to implement the queue using array?
+Code:-
+class QueueA {
+    static private int front, rear, size;
+    static private int queue[];
+    QueueA(int size)
+    {
+        front = rear = -1;
+        this.size = size;
+        queue = new int[size];
+    }
+    static void queueEnqueue(int data)
+    {
+        if (size-1 == rear) {
+            System.out.println("Overflow");
+            return;
+        }
+    else if( (front==-1) && (rear==-1))
+    {
+        front = rear = 0;
+    }
+    else {
+        rear++;
+    }
+    queue[rear] = data;
+    return;
+    }
+    static void queueDequeue()
+    {
+        // if queue is empty
+        if((front==-1)||(front>rear))
+        {
+            System.out.println("Underflow");
+            return;
+        }
+        // shift all the elements from index 2 till rear
+        // to the right by one
+        else {
+            int item = queue[front];
+            if(front == rear)
+            {
+                front = -1;
+                rear = -1 ;
+            }
+            else
+            {
+                front = front + 1;
+            }
+        }
+        return;
+        
+    }
+    // print queue elements
+    static void queueDisplay()
+    {
+        int i;
+        if (front == rear) {
+        System.out.printf("\nQueue is Empty\n");
+        return;
+    }
+    // traverse front to rear and print elements
+    for (i = front; i < rear; i++) {
+    System.out.println(" <-- "+queue[i]);
+    }
+    return;
+    }
+    // print front of queue
+    static void queueFront()
+    {
+        if (front == rear) {
+        System.out.printf("\nQueue is Empty\n");
+        return;
+        }
+    System.out.printf("\nFront Element is: %d",
+    queue[front]);
+    return;
+    }
+    public static void main(String[] args)
+    {
+        // Create a queue of capacity 4
+        QueueA q = new QueueA(4);
+        // print Queue elements
+        q.queueDisplay();
+        // inserting elements in the queue
+        q.queueEnqueue(20);
+        q.queueEnqueue(30);
+        q.queueEnqueue(40);
+        q.queueEnqueue(50);
+        // print Queue elements
+        q.queueDisplay();
+        // insert element in the queue
+        q.queueEnqueue(60);
+        // print Queue elements
+        q.queueDisplay();
+        q.queueDequeue();
+        q.queueDequeue();
+        System.out.println("\n\nafter two node deletion\n\n");
+        q.queueDisplay();
+        q.queueFront();
+    }
+}
