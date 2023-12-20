@@ -1,5 +1,6 @@
 Write a java program to represent stack using linked list perform operations such as pop, push, peek etc.
 import static java.lang.System.exit;
+
 class Linkedlist{
     public static void main(String[] args){
         StackUsingLinkedlist obj = new StackUsingLinkedlist();
